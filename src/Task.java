@@ -11,9 +11,9 @@ public class Task {
 
     /**
      *
-     * @param taskName
-     * @param taskDescription
-     * @param dueDate
+     * @param taskName name of the task
+     * @param taskDescription description of the task
+     * @param dueDate due date of the task
      */
     public Task(String taskName, String taskDescription, String dueDate) {
         this.taskName = taskName;
@@ -22,11 +22,11 @@ public class Task {
     }
 
     /**
-     *
-     * @param taskName
-     * @param taskDescription
-     * @param dueDate
-     * @param masterTask
+     * Creates a sub task
+     * @param taskName name of the task
+     * @param taskDescription description of the task
+     * @param dueDate due date of the task
+     * @param masterTask the master task that this sub task belongs to
      */
     public Task(String taskName, String taskDescription, String dueDate, Task masterTask) {
         this.taskName = taskName;
