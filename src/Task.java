@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Task {
 
@@ -7,7 +7,7 @@ public class Task {
     private String dueDate;
     private Stats Statistics;
     private Task masterTask;
-    private ArrayList subTasks;
+    //private LinkedList[Task] subtasks;
 
     /**
      *
