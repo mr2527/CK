@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Task {
@@ -7,6 +8,7 @@ public class Task {
     private String dueDate;
     private Stats Statistics;
     private Task masterTask;
+    private ArrayList<Task> subtasks;
     //private LinkedList[Task] subtasks;
 
     /**
@@ -60,24 +62,24 @@ public class Task {
 //    }
 
     /**
-     *
-     * @param taskDescription
+     * Set the task description.
+     * @param taskDescription the task description
      */
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
     }
 
     /**
-     *
-     * @return
+     * Get the due date.
+     * @return the due date
      */
     public String getDueDate() {
         return dueDate;
     }
 
     /**
-     *
-     * @param dueDate
+     * Set the due date
+     * @param dueDate the due date
      */
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
@@ -100,16 +102,16 @@ public class Task {
     }
 
     /**
-     *
-     * @return
+     * Get the master task of this sub task.
+     * @return the master task
      */
     public Task getMasterTask() {
         return masterTask;
     }
 
     /**
-     *
-     * @param masterTask
+     * Set the master task for this sub task.
+     * @param masterTask the master task
      */
     public void setMasterTask(Task masterTask) {
         this.masterTask = masterTask;
