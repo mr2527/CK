@@ -36,28 +36,28 @@ public class Task {
     }
 
     /**
-     *
-     * @return
+     * Get the name of the task
+     * @return the task name
      */
     public String getTaskName() {
         return taskName;
     }
 
     /**
-     *
-     * @param taskName
+     * Set the name of the task
+     * @param taskName the task name
      */
     public void setTaskName(String taskName) {
         this.taskName = taskName;
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getTaskDescription() {
-        return taskDescription;
-    }
+//    /**
+//     * Get the description of the task
+//     * @return
+//     */
+//    public String getTaskDescription() {
+//        return taskDescription;
+//    }
 
     /**
      *
