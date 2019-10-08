@@ -115,4 +115,14 @@ public class Task {
         this.masterTask = masterTask;
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "taskName='" + taskName + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", dueDate='" + dueDate + '\'' +
+                ", Statistics=" + Statistics +
+                ", masterTask=" + masterTask +
+                '}';
+    }
 }
