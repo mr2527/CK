@@ -44,4 +44,12 @@ public class Timer {
         this.endTimer = endTimer;
 
     }
+
+    @Override
+    public String toString() {
+        return "Timer{" +
+                "startTimer=" + startTimer +
+                ", endTimer=" + endTimer +
+                '}';
+    }
 }

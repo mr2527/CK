@@ -104,4 +104,16 @@ public class Stats {
     public void setActive(boolean active) {
         isActive = active;
     }
+
+    @Override
+    public String toString() {
+        return "Stats{" +
+                "dateAssigned='" + dateAssigned + '\'' +
+                ", dateCompleted='" + dateCompleted + '\'' +
+                ", estimateTime=" + estimateTime +
+                ", actualTime=" + actualTime +
+                ", isActive=" + isActive +
+                ", eatMyShorts=" + eatMyShorts +
+                '}';
+    }
 }
