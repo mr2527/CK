@@ -37,7 +37,9 @@ public class Task {
 
 
     /**
-     *
+     * returns the number of days until the task is due
+     * param: today's date in "##/##/####" form
+     * Author: Joseph Saltalamacchia
      * @return the number of days until the due date
      */
     public int daysUntilDue(String today)
