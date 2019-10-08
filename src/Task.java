@@ -35,6 +35,26 @@ public class Task {
         this.masterTask = masterTask;
     }
 
+
+    /**
+     *
+     * @return the number of days until the due date
+     */
+    public int daysUntilDue()
+    {
+        return 0;
+
+    }
+
+
+
+
+
+
+
+
+
+
     /**
      * Get the name of the task
      * @return the task name
