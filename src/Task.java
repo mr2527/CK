@@ -40,9 +40,12 @@ public class Task {
      *
      * @return the number of days until the due date
      */
-    public int daysUntilDue()
+    public int daysUntilDue(String today)
     {
-        return 0;
+        String[] partsDue = dueDate.split("/");
+        String[] partsToday = today.split("/");
+
+        return(Integer.parseInt(partsDue[1]) - Integer.parseInt(partsToday[1]));
 
     }
 
