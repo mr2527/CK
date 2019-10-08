@@ -148,6 +148,21 @@ public class Task {
     }
 
 
+    /**
+     * Get a sub task.
+     * @param name the name of the task
+     * @return the sub task that we are looking for
+     * @author Su Thit Thazin
+     */
+    public Task getSubTask (String name) {
+        for (Object t : this.subTasks) {
+            Task task = (Task) t;
+            if (task.taskName.equals(name)) {
+                return task;
+            }
+        }
+        return null;
+    }
 
 
 }
