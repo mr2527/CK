@@ -2,6 +2,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /*
+* SimpleDateFormat link for later: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+* Calendar link for later: https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html
  */
 public class Stats {
 
@@ -62,23 +64,25 @@ public class Stats {
     }
 
     /**
-     *
-     * @return
+     * Returns the estimated time the user inputs.
+     * @return estimateTime
+     * @author Miguel Rosario
      */
     public double getEstimateTime() {
         return estimateTime;
     }
 
     /**
-     *
-     * @param estimateTime
+     * Returns the estimated time set by the user to finish the task.
+     * @param estimateTime Time set by the user.
+     * @author Miguel Rosario
      */
     public void setEstimateTime(double estimateTime) {
         this.estimateTime = estimateTime;
     }
 
     /**
-     *
+     * Returns a value of the real time (computer) subtracted by the total time estimated time
      * @return
      */
     public double getActualTime() {
@@ -86,16 +90,20 @@ public class Stats {
     }
 
     /**
-     *
+     * Actual time is the ending time after the alarm has finished minus the estimated time.
      * @param actualTime
+     * @author Miguel Rosario
+     * @author editor(s)
      */
     public void setActualTime(double actualTime) {
+        //Working on method later
         this.actualTime = actualTime;
     }
 
     /**
-     *
-     * @return
+     * If the timer is active return a true or false.
+     * @return isActive True/False
+     * @author Miguel Rosario
      */
     public boolean isActive() {
         return isActive;
@@ -105,6 +113,7 @@ public class Stats {
      *
      * @param active
      */
+    //I have no idea what this is used for
     public void setActive(boolean active) {
         isActive = active;
     }
@@ -114,7 +123,7 @@ public class Stats {
      * @return String that contains the date and time.
      * @author Miguel Rosario
      */
-    public static String getTotalDate(){
+    private static String getTotalDate(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("E: MM/dd/yyyy \nHH:mm:ss a z");
         String totalDateString = formatter.format(calendar.getTime());
@@ -126,7 +135,7 @@ public class Stats {
      * @return timeString
      * @author Miguel Rosario
      */
-    public static String getTime(){
+    private static String getTime(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
         String timeString = formatter.format(calendar.getTime());
@@ -138,7 +147,7 @@ public class Stats {
      * @return dateString
      * @author Miguel Rosario
      */
-    public static String getDate(){
+    private static String getDate(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         String dateString = formatter.format(calendar.getTime());
