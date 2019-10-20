@@ -55,7 +55,15 @@ public class Task {
         return(subTasks.remove(newTask));
     }
 
-    public boolean containsSubTask(subTask);
+    public boolean containsSubTask(subTask)
+    {
+        return(subTasks.contains(newTask));
+    }
+
+    public void allSubTasks()
+    {
+        System.out.println(subTasks);
+    }
 
     /**
      * returns the number of days until the task is due
