@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /*
  */
 public class Stats {
@@ -15,6 +18,7 @@ public class Stats {
      * @param estimateTime
      * @param actualTime
      * @param isActive
+     * @author Miguel Rosario
      */
     public Stats(String dateAssigned, String dateCompleted, double estimateTime, double actualTime, boolean isActive) {
         this.dateAssigned = dateAssigned;
@@ -23,13 +27,6 @@ public class Stats {
         this.actualTime = actualTime;
         this.isActive = isActive;
     }
-
-
-
-
-
-
-
 
 
     /**
@@ -112,6 +109,18 @@ public class Stats {
         isActive = active;
     }
 
+    /**
+     * Returns date/time in MM DD YYYY, HH MM SS format
+     * @return String that contains the date and time.
+     * @author Miguel Rosario
+     */
+    public static String getDate(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+        String dateString = formatter.format(calendar.getTime());
+        return dateString;
+    }
+
     @Override
     public String toString() {
         return "Stats{" +
@@ -121,5 +130,16 @@ public class Stats {
                 ", actualTime=" + actualTime +
                 ", isActive=" + isActive +
                 '}';
+    }
+
+    /**
+     * Test cases
+     * @param args
+     * @author Miguel Rosario
+     */
+    public static void main(String[] args) {
+        String date = getDate();
+        System.out.println(date);
+
     }
 }
