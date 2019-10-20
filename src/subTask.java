@@ -17,6 +17,7 @@ public class subTask extends Task{
      *
      */
     public subTask(Task masterTask, Task subTask) {
+        
 
     }
 }

@@ -47,7 +47,7 @@ public class Task {
 
     public boolean addSubTask(Task newTask)
     {
-        return(subTasks.add((subTask(newTask,this))));
+        return(subTasks.add((subTask(this,newTask))));
     }
 
     public boolean removeSubTask(subTask newTask)
