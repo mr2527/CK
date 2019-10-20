@@ -14,7 +14,7 @@ public class subTask extends Task{
     }
 
     /**
-     * kljkjljk kdjfajskfajskfjkfj
+     * subTask constructor
      */
     public subTask(Task masterTask, Task subTask) {
         super(subTask.getTaskName(), subTask.getTaskDescription(), subTask.getDueDate());
