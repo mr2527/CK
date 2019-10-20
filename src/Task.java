@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Contains functions for generating a task and modifying the properties of a task.
@@ -7,26 +8,19 @@ import java.util.ArrayList;
  */
 public class Task {
 
-    /** name of the task */
     private String taskName;
-
-    /** description of the task */
     private String taskDescription;
-
-    /** the due date of the task */
     private String dueDate;
-
-    /** the Statistics of the task */
     private Stats Statistics;
-
-    /** the master task that this task belongs to, if this is not the master task */
     private Task masterTask;
+    private float totalTime;
+    private int totalDays;
+    private ArrayList<Task> subTasks;
 
-    /** get the sub tasks belonging to a master task */
-    private ArrayList subTasks;
+
 
     /**
-     * Make a task.
+     *
      * @param taskName name of the task
      * @param taskDescription description of the task
      * @param dueDate due date of the task
@@ -35,6 +29,8 @@ public class Task {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.dueDate = dueDate;
+        this.totalDays = 0;
+        this.totalTime = 0;
     }
 
     /**
@@ -54,9 +50,10 @@ public class Task {
 
     /**
      * returns the number of days until the task is due
-     * param: today's date in "##/##/####" form
-     * Author: Joseph Saltalamacchia
+     * Prerequ The string must be in MM/DD/YYYY format
+     * @param today's date in "MM/DD/YYYY" form
      * @return the number of days until the due date
+     *  Author: Joseph Saltalamacchia
      */
     public int daysUntilDue(String today)
     {
@@ -66,6 +63,41 @@ public class Task {
         return(Integer.parseInt(partsDue[1]) - Integer.parseInt(partsToday[1]));
 
     }
+
+
+
+
+
+    public float getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(int totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public int getTotalDays() {
+        return totalDays;
+    }
+
+    public void setTotalDays(int totalDays) {
+        this.totalDays = totalDays;
+    }
+
+    public void AddDays(int days)
+    {
+        this.totalDays += days;
+    }
+
+    public void addTime(float time)
+    {
+        this.totalTime += time;
+    }
+
+
+
+
+
 
     /**
      * Get the name of the task
@@ -92,58 +124,65 @@ public class Task {
 //    }
 
     /**
-     * Set the description of the task.
-     * @param taskDescription the description of the task
+     *
+     * @param taskDescription
      */
+
+
+
+
+
+
+
+
+
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
     }
 
     /**
-     * Get the due date of the task.
-     * @return the due date of the task
+     *
+     * @return
      */
     public String getDueDate() {
         return dueDate;
     }
 
     /**
-     * Set the due date of the task.
-     * @param dueDate the due date of the task
+     *
+     * @param dueDate
      */
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
     /**
-     * Get the Stats (date assigned, date completed, estimated time, actual time, and if the task is active)
-     * associated with a task.
-     * @return the Stats associated with a task
+     *
+     * @return
      */
     public Stats getStatistics() {
         return Statistics;
     }
 
     /**
-     * Get the Stats (date assigned, date completed, estimated time, actual time, and if the task is active)
-     * associated with a task.
-     * @param statistics the Stats associated with a task
+     *
+     * @param statistics
      */
     public void setStatistics(Stats statistics) {
         Statistics = statistics;
     }
 
     /**
-     * Get the master task that this sub task belongs to.
-     * @return the master task that this sub task belongs to
+     *
+     * @return
      */
     public Task getMasterTask() {
         return masterTask;
     }
 
     /**
-     * Set the master task that this sub task belongs to.
-     * @param masterTask the master task that this sub task belongs to
+     *
+     * @param masterTask
      */
     public void setMasterTask(Task masterTask) {
         this.masterTask = masterTask;
@@ -163,6 +202,25 @@ public class Task {
             }
         }
         return null;
+    }
+
+    /**
+     * compares Tasks based on the task name, the description of that task, and it's due date
+     *
+     * @param o the object being compared
+     */ @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task)) return false;
+        Task task = (Task) o;
+        return taskName.equals(task.taskName) &&
+                taskDescription.equals(task.taskDescription) &&
+                dueDate.equals(task.dueDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskName, taskDescription, dueDate);
     }
 
 
