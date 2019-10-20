@@ -168,24 +168,25 @@ public class Stats {
             case"Mon":
                 return "Monday";
 
-            case"Tues":
-                return "Sunday";
+            case"Tue":
+                return "Tuesday";
 
             case"Wed":
-                return "Monday";
+                return "Wednesday";
 
-            case"Thur":
-                return "Sunday";
+            case"Thu":
+                return "Thursday";
 
             case"Fri":
-                return "Monday";
+                return "Friday";
 
             case"Sat":
                 return "Saturday";
 
+            default:
+                return day;
 
         }
-        return "no";
     }
 
     /**
