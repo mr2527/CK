@@ -7,7 +7,6 @@ public class Stats {
     private double estimateTime;
     private double actualTime;
     private boolean isActive;
-    private int eatMyShorts;
 
     /**
      *
@@ -24,6 +23,14 @@ public class Stats {
         this.actualTime = actualTime;
         this.isActive = isActive;
     }
+
+
+
+
+
+
+
+
 
     /**
      *
@@ -113,7 +120,6 @@ public class Stats {
                 ", estimateTime=" + estimateTime +
                 ", actualTime=" + actualTime +
                 ", isActive=" + isActive +
-                ", eatMyShorts=" + eatMyShorts +
                 '}';
     }
 }

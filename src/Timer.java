@@ -1,3 +1,6 @@
+/**
+ *
+ */
 public class Timer {
     private float startTimer;
     private float endTimer;

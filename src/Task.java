@@ -1,6 +1,4 @@
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Task {
 
@@ -117,22 +115,4 @@ public class Task {
         this.masterTask = masterTask;
     }
 
-    /**
-     * Gets the date in MM-DD-YYYY format and displays it as a string
-     */
-    public static void getDate(){
-        Calendar calendar = Calendar.getInstance(); // gets current instance of the calendar
-        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
-        String dateString = formatter.format(calendar.getTime());
-        System.out.println(dateString);
-    }
-
-    public boolean finishedInTime(){
-        this.dueDate = dueDate;
-        return true;
-    }
-
-    public static void main(String[] args) {
-        getDate();
-    }
 }
