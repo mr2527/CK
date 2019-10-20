@@ -1,39 +1,22 @@
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.stream.StreamSupport;
 
-/**
- * Contains functions for generating a task and modifying the properties of a task.
- * @author Joey
- * @author Su Thit Thazin
- */
 public class Task {
 
-    /** name of the task */
     private String taskName;
-
-    /** description of the task */
     private String taskDescription;
-
-    /** the due date of the task */
     private String dueDate;
-
-    /** the Statistics of the task */
     private Stats Statistics;
-
-    /** the master task that this task belongs to, if this is not the master task */
     private Task masterTask;
-
-    /** the total time spent on this task */
     private float totalTime;
-
-    /** the total number of days spent on this task */
     private int totalDays;
-
-    /** get the sub tasks belonging to a master task */
     private ArrayList<Task> subTasks;
 
+
+
     /**
-     * Make a task.
+     *
      * @param taskName name of the task
      * @param taskDescription description of the task
      * @param dueDate due date of the task
@@ -74,54 +57,119 @@ public class Task {
         String[] partsToday = today.split("/");
 
         return(Integer.parseInt(partsDue[1]) - Integer.parseInt(partsToday[1]));
+
     }
 
-    /** Get the total time spent on this task
-     * @return the total time spent on this task
-     */
+    /*
+    * check if the project was finished in time
+    *
+    * return: if the project was finished it time of not
+    *         note: if the project is not finished, return false
+    * Author: Joseph Saltalamacchia*/
+
+    public boolean finishedInTime()
+    {
+        if(Statistics.isActive() == true) //test if the task is finished
+        {
+            return false;
+        }
+        //test if the due date year is less than the finished year
+        else if(parseYear(this.dueDate) <
+                parseYear(Statistics.getDateCompleted()))
+        {
+            return false;
+        }
+        //test if the due month is less than the finished month
+        else if(parseMonth(this.dueDate) <
+                parseMonth(Statistics.getDateCompleted()))
+        {
+            return false;
+        }
+        //test if the due day is less than the finished day
+        else if(parseDay(this.dueDate) <
+                parseDay(Statistics.getDateCompleted()))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /*
+    * accepts a string in MM/DD/YYYY and returns the year as an integer
+    *
+    * prerequ: the string must be in MM/DD/YYYY format
+    *
+    * @param date the date in MM/DD/YYYY format
+    *
+    * @return the year as an integer
+    *
+    * @Author: Joseph Saltalamacchia*/
+    private int parseYear(String date)
+    {
+        return(Integer.parseInt(date.substring(7,11)));
+    }
+    /*
+     * accepts a string in MM/DD/YYYY and returns the Month as an integer
+     *
+     * prerequ: the string must be in MM/DD/YYYY format
+     *
+     * @param date the date in MM/DD/YYYY format
+     *
+     * @return the Month as an integer
+     *
+     * @Author: Joseph Saltalamacchia*/
+    private int parseMonth(String date)
+    {
+        return(Integer.parseInt(date.substring(0,2)));
+    }
+    /*
+     * accepts a string in MM/DD/YYYY and returns the Day as an integer
+     *
+     * prerequ: the string must be in MM/DD/YYYY format
+     *
+     * @param date the date in MM/DD/YYYY format
+     *
+     * @return the Day as an integer
+     *
+     * @Author: Joseph Saltalamacchia*/
+    private int parseDay(String date)
+    {
+        return(Integer.parseInt(date.substring(3,5)));
+    }
+
+
+
     public float getTotalTime() {
         return totalTime;
     }
 
-    /** Set the total time spent on this task
-     * @param totalTime the total time spent on this task
-     */
     public void setTotalTime(int totalTime) {
         this.totalTime = totalTime;
     }
 
-    /**
-     * Get the total number of days spent on this task
-     * @return Get the total number of days spent on this task
-     */
     public int getTotalDays() {
         return totalDays;
     }
 
-    /**
-     * Set the total number of days spent on this task
-     * @param totalDays the total number of days spent on this task
-     */
     public void setTotalDays(int totalDays) {
         this.totalDays = totalDays;
     }
 
-    /**
-     * Add days to the totalDays of this task
-     * @param days number of days to be added
-     */
     public void AddDays(int days)
     {
         this.totalDays += days;
     }
 
-    /** Add time to the totalTime of this task
-     * @param time amount of time to be added
-     */
     public void addTime(float time)
     {
         this.totalTime += time;
     }
+
+
+
+
+
 
     /**
      * Get the name of the task
@@ -148,62 +196,70 @@ public class Task {
 //    }
 
     /**
-     * Set the description of the task.
-     * @param taskDescription the description of the task
+     *
+     * @param taskDescription
      */
+
+
+
+
+
+
+
+
+
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
     }
 
     /**
-     * Get the due date of the task.
-     * @return the due date of the task
+     *
+     * @return
      */
     public String getDueDate() {
         return dueDate;
     }
 
     /**
-     * Set the due date of the task.
-     * @param dueDate the due date of the task
+     *
+     * @param dueDate
      */
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
     /**
-     * Get the Stats (date assigned, date completed, estimated time, actual time, and if the task is active)
-     * associated with a task.
-     * @return the Stats associated with a task
+     *
+     * @return
      */
     public Stats getStatistics() {
         return Statistics;
     }
 
     /**
-     * Get the Stats (date assigned, date completed, estimated time, actual time, and if the task is active)
-     * associated with a task.
-     * @param statistics the Stats associated with a task
+     *
+     * @param statistics
      */
     public void setStatistics(Stats statistics) {
         Statistics = statistics;
     }
 
     /**
-     * Get the master task that this sub task belongs to.
-     * @return the master task that this sub task belongs to
+     *
+     * @return
      */
     public Task getMasterTask() {
         return masterTask;
     }
 
     /**
-     * Set the master task that this sub task belongs to.
-     * @param masterTask the master task that this sub task belongs to
+     *
+     * @param masterTask
      */
     public void setMasterTask(Task masterTask) {
         this.masterTask = masterTask;
     }
+
 
     /**
      * Get a sub task.
@@ -235,10 +291,6 @@ public class Task {
                 dueDate.equals(task.dueDate);
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public int hashCode() {
         return Objects.hash(taskName, taskDescription, dueDate);
