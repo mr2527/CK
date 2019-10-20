@@ -114,9 +114,33 @@ public class Stats {
      * @return String that contains the date and time.
      * @author Miguel Rosario
      */
+    public static String getTotalDate(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("E: MM/dd/yyyy \nHH:mm:ss a z");
+        String totalDateString = formatter.format(calendar.getTime());
+        return totalDateString;
+    }
+
+    /**
+     * Helper function that solely returns the time in HH MM SS format.
+     * @return timeString
+     * @author Miguel Rosario
+     */
+    public static String getTime(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+        String timeString = formatter.format(calendar.getTime());
+        return timeString;
+    }
+
+    /**
+     * Helper function that solely returns the date in MM DD YYYY format.
+     * @return dateString
+     * @author Miguel Rosario
+     */
     public static String getDate(){
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         String dateString = formatter.format(calendar.getTime());
         return dateString;
     }
@@ -142,8 +166,10 @@ public class Stats {
      * @author Miguel Rosario
      */
     public static void main(String[] args) {
+        String totalDate = getTotalDate();
+        String time = getTime();
         String date = getDate();
-        System.out.println(date);
+        System.out.println(date + "\n" + time + "\n" + totalDate);
 
     }
 }
