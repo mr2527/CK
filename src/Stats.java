@@ -122,6 +122,10 @@ public class Stats {
     }
 
     @Override
+    /**
+     * Overriden toString method that displays the stats
+     * @author Miguel Rosario
+     */
     public String toString() {
         return "Stats{" +
                 "dateAssigned='" + dateAssigned + '\'' +
