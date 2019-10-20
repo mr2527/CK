@@ -12,25 +12,7 @@ public class Task {
     private int totalDays;
     private ArrayList<Task> subTasks;
 
-    /**
-     * compares Tasks based on the task name, the description of that task, and it's due date
-     *
-     * @param o the object being compared
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Task)) return false;
-        Task task = (Task) o;
-        return taskName.equals(task.taskName) &&
-                taskDescription.equals(task.taskDescription) &&
-                dueDate.equals(task.dueDate);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(taskName, taskDescription, dueDate);
-    }
 
     public float getTotalTime() {
         return totalTime;
@@ -216,6 +198,25 @@ public class Task {
             }
         }
         return null;
+    }
+
+    /**
+     * compares Tasks based on the task name, the description of that task, and it's due date
+     *
+     * @param o the object being compared
+     */ @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task)) return false;
+        Task task = (Task) o;
+        return taskName.equals(task.taskName) &&
+                taskDescription.equals(task.taskDescription) &&
+                dueDate.equals(task.dueDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskName, taskDescription, dueDate);
     }
 
 
