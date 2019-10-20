@@ -14,7 +14,7 @@ public class subTask extends Task{
     }
 
     /**
-     * kljkjljk
+     * kljkjljk kdjfajskfajskfjkfj
      */
     public subTask(Task masterTask, Task subTask) {
 
