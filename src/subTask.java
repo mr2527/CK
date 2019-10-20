@@ -1,18 +1,12 @@
-/**
- * Creating a sub task that belongs to a master task
- * @author Su Thit Thazin
- */
 public class subTask extends Task{
 
     /** the master task that this sub task belongs to */
     public Task masterTask;
 
     /**
-     * Create a sub task.
-     * @param taskName the name of the task
-     * @param taskDescription the description of the task
-     * @param dueDate the date the task is due
-     * @param masterTask the master task that this sub task belongs to
+     * @param taskName        name of the task
+     * @param taskDescription description of the task
+     * @param dueDate         due date of the task
      */
     public subTask(String taskName, String taskDescription, String dueDate, Task masterTask) {
         super(taskName, taskDescription, dueDate);
@@ -20,9 +14,9 @@ public class subTask extends Task{
     }
 
     /**
-     * Create a sub task
-     * @param masterTask the master task that this sub task belongs to
-     * @param subTask the sub task
+     *
+     * @param masterTask
+     * @param subTask
      */
     public subTask(Task masterTask, Task subTask) {
         super(subTask.getTaskName(), subTask.getTaskDescription(), subTask.getDueDate());

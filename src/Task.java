@@ -4,29 +4,16 @@ import java.util.stream.StreamSupport;
 
 public class Task {
 
-    /** name of the task */
     private String taskName;
-
-    /** description of the task */
     private String taskDescription;
-
-    /** the due date of the task */
     private String dueDate;
-
-    /** the Statistics of the task */
     private Stats Statistics;
-
-    /** the master task that this task belongs to, if this is not the master task */
     private Task masterTask;
-
-    /** the total time spent on this task */
     private float totalTime;
-
-    /** the total number of days spent on this task */
     private int totalDays;
-
-    /** the sub tasks belonging to this task */
     private ArrayList<Task> subTasks;
+
+
 
     /**
      *
@@ -42,39 +29,25 @@ public class Task {
         this.totalTime = 0;
     }
 
-    /**
-     * adds a subtask to the back of the list of subTasks
-     * @param newTask the sub task to be added
-     * @return
-     */
+
+
+    /*
+    * adds a subtask to the back of the list of subTasks */
     public boolean addSubTask(Task newTask)
     {
-        return(subTasks.add((new subTask(this, newTask))));
+        return(subTasks.add((new subTask(this,newTask))));
     }
 
-    /**
-     * remove a sub task from this task's list of sub tasks
-     * @param task sub task to be removed
-     * @return
-     */
-    public boolean removeSubTask(subTask task)
+    public boolean removeSubTask(subTask newTask)
     {
-        return(subTasks.remove(task));
+        return(subTasks.remove(newTask));
     }
 
-    /**
-     * determine whether this task contains a particular sub task or not
-     * @param task the sub task we are looking for
-     * @return true if the sub task is found, false otherwise
-     */
-    public boolean containsSubTask(subTask task)
+    public boolean containsSubTask(subTask)
     {
-        return(subTasks.contains(task));
+        return(subTasks.contains(subTasks));
     }
 
-    /**
-     * Print the sub tasks belonging to this task
-     */
     public void allSubTasks()
     {
         System.out.println(subTasks);
@@ -96,14 +69,16 @@ public class Task {
 
     }
 
-    /**
-     * check if the project was finished in time
-     * @return true if the project was finished in time, false otherwise
-     * @author Joseph Saltalamacchia
-     */
+    /*
+    * check if the project was finished in time
+    *
+    * return: if the project was finished it time of not
+    *         note: if the project is not finished, return false
+    * Author: Joseph Saltalamacchia*/
+
     public boolean finishedInTime()
     {
-        if(Statistics.isActive()) //test if the task is finished
+        if(Statistics.isActive() == true) //test if the task is finished
         {
             return false;
         }
@@ -125,44 +100,53 @@ public class Task {
         {
             return false;
         }
+
         return true;
     }
 
-    /**
-     * accepts a string in MM/DD/YYYY and returns the year as an integer
-     * prereq: the string must be in MM/DD/YYYY format
-     * @param date the date in MM/DD/YYYY format
-     * @return the year as an integer
-     * @author Joseph Saltalamacchia
-     */
+    /*
+    * accepts a string in MM/DD/YYYY and returns the year as an integer
+    *
+    * prerequ: the string must be in MM/DD/YYYY format
+    *
+    * @param date the date in MM/DD/YYYY format
+    *
+    * @return the year as an integer
+    *
+    * @Author: Joseph Saltalamacchia*/
     private int parseYear(String date)
     {
         return(Integer.parseInt(date.substring(7,11)));
     }
-
-    /**
+    /*
      * accepts a string in MM/DD/YYYY and returns the Month as an integer
-     * prereq: the string must be in MM/DD/YYYY format
+     *
+     * prerequ: the string must be in MM/DD/YYYY format
+     *
      * @param date the date in MM/DD/YYYY format
-     * @return the month as an integer
-     * @author Joseph Saltalamacchia
-     */
+     *
+     * @return the Month as an integer
+     *
+     * @Author: Joseph Saltalamacchia*/
     private int parseMonth(String date)
     {
         return(Integer.parseInt(date.substring(0,2)));
     }
-
-    /**
-     * accepts a string in MM/DD/YYYY and returns the day as an integer
-     * prereq: the string must be in MM/DD/YYYY format
+    /*
+     * accepts a string in MM/DD/YYYY and returns the Day as an integer
+     *
+     * prerequ: the string must be in MM/DD/YYYY format
+     *
      * @param date the date in MM/DD/YYYY format
-     * @return the day as an integer
-     * @author Joseph Saltalamacchia
-     */
+     *
+     * @return the Day as an integer
+     *
+     * @Author: Joseph Saltalamacchia*/
     private int parseDay(String date)
     {
         return(Integer.parseInt(date.substring(3,5)));
     }
+
 
 
     public float getTotalTime() {
@@ -191,6 +175,11 @@ public class Task {
         this.totalTime += time;
     }
 
+
+
+
+
+
     /**
      * Get the name of the task
      * @return the task name
@@ -207,18 +196,27 @@ public class Task {
         this.taskName = taskName;
     }
 
-    /**
-     * Get the description of the task
-     * @return
-     */
-    public String getTaskDescription() {
-        return taskDescription;
-    }
+//    /**
+//     * Get the description of the task
+//     * @return
+//     */
+//    public String getTaskDescription() {
+//        return taskDescription;
+//    }
 
     /**
      *
      * @param taskDescription
      */
+
+
+
+
+
+
+
+
+
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
     }
