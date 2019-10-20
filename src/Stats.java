@@ -12,7 +12,7 @@ public class Stats {
     private boolean isActive;
 
     /**
-     *
+     * a Stats object that has 5 variables instantiated.
      * @param dateAssigned
      * @param dateCompleted
      * @param estimateTime
@@ -121,11 +121,11 @@ public class Stats {
         return dateString;
     }
 
-    @Override
     /**
-     * Overriden toString method that displays the stats
+     * Override toString method that displays the stats
      * @author Miguel Rosario
      */
+    @Override
     public String toString() {
         return "Stats{" +
                 "dateAssigned='" + dateAssigned + '\'' +
