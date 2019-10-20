@@ -29,25 +29,13 @@ public class Task {
         this.totalTime = 0;
     }
 
-    /**
-     * Creates a sub task
-     * @param taskName name of the task
-     * @param taskDescription description of the task
-     * @param dueDate due date of the task
-     * @param masterTask the master task that this sub task belongs to
-     */
-    public Task(String taskName, String taskDescription, String dueDate, Task masterTask) {
-        this.taskName = taskName;
-        this.taskDescription = taskDescription;
-        this.dueDate = dueDate;
-        this.masterTask = masterTask;
-        this.totalDays = 0;
-        this.totalTime = 0;
-    }
 
+
+    /*
+    * adds a subtask to the back of the list of subTasks */
     public boolean addSubTask(Task newTask)
     {
-        return(subTasks.add((subTask(this,newTask))));
+        return(subTasks.add((new subTask(this,newTask))));
     }
 
     public boolean removeSubTask(subTask newTask)
@@ -57,7 +45,7 @@ public class Task {
 
     public boolean containsSubTask(subTask)
     {
-        return(subTasks.contains(newTask));
+        return(subTasks.contains(subTasks));
     }
 
     public void allSubTasks()
