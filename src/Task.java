@@ -25,6 +25,7 @@ public class Task {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.dueDate = dueDate;
+        this.masterTask = null;
         this.totalDays = 0;
         this.totalTime = 0;
     }
@@ -41,6 +42,8 @@ public class Task {
         this.taskDescription = taskDescription;
         this.dueDate = dueDate;
         this.masterTask = masterTask;
+        this.totalDays = 0;
+        this.totalTime = 0;
     }
 
 
