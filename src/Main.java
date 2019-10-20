@@ -47,7 +47,7 @@ public class Main {
 
     /**
      * Processes all of the commands
-     * @author Miguel Rosario
+     * @author Miguel Rosario, our lord and savior
      */
      /*
      THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING

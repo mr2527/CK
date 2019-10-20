@@ -225,9 +225,9 @@ public class Task {
 //     * Get the description of the task
 //     * @return
 //     */
-//    public String getTaskDescription() {
-//        return taskDescription;
-//    }
+    public String getTaskDescription() {
+        return taskDescription;
+    }
 
     /**
      *
