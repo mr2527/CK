@@ -8,10 +8,15 @@ public class Task {
     private String dueDate;
     private Stats Statistics;
     private Task masterTask;
-    private int totalTime;
+    private float totalTime;
     private int totalDays;
     private ArrayList<Task> subTasks;
 
+    /**
+     * compares Tasks based on the task name, the description of that task, and it's due date
+     *
+     * @param o the object being compared
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -27,7 +32,7 @@ public class Task {
         return Objects.hash(taskName, taskDescription, dueDate);
     }
 
-    public int getTotalTime() {
+    public float getTotalTime() {
         return totalTime;
     }
 
@@ -41,6 +46,16 @@ public class Task {
 
     public void setTotalDays(int totalDays) {
         this.totalDays = totalDays;
+    }
+
+    public void AddDays(int days)
+    {
+        this.totalDays += days;
+    }
+
+    public void addTime(float time)
+    {
+        this.totalTime += time;
     }
 
     /**
@@ -74,8 +89,8 @@ public class Task {
 
     /**
      * returns the number of days until the task is due
-     * Prerequ: The string must be in MM/DD/YYYY format
-     * @param: today's date in "##/##/####" for
+     * Prerequ The string must be in MM/DD/YYYY format
+     * @param today's date in "MM/DD/YYYY" form
      * @return the number of days until the due date
      *  Author: Joseph Saltalamacchia
      */
