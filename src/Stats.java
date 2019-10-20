@@ -167,25 +167,25 @@ public class Stats {
         SimpleDateFormat formatter = new SimpleDateFormat("E");
         String day = formatter.format(calendar.getTime());
         switch(day){
-            case"Sun":
+            case "Sun":
                 return "Sunday";
 
-            case"Mon":
+            case "Mon":
                 return "Monday";
 
-            case"Tue":
+            case "Tue":
                 return "Tuesday";
 
-            case"Wed":
+            case "Wed":
                 return "Wednesday";
 
-            case"Thu":
+            case "Thu":
                 return "Thursday";
 
-            case"Fri":
+            case "Fri":
                 return "Friday";
 
-            case"Sat":
+            case "Sat":
                 return "Saturday";
 
             default:
