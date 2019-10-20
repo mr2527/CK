@@ -8,13 +8,26 @@ public class Task {
     private String dueDate;
     private Stats Statistics;
     private Task masterTask;
-    private float totalTime;
+    private int totalTime;
     private int totalDays;
     private ArrayList<Task> subTasks;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task)) return false;
+        Task task = (Task) o;
+        return taskName.equals(task.taskName) &&
+                taskDescription.equals(task.taskDescription) &&
+                dueDate.equals(task.dueDate);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskName, taskDescription, dueDate);
+    }
 
-    public float getTotalTime() {
+    public int getTotalTime() {
         return totalTime;
     }
 
@@ -28,16 +41,6 @@ public class Task {
 
     public void setTotalDays(int totalDays) {
         this.totalDays = totalDays;
-    }
-
-    public void AddDays(int days)
-    {
-        this.totalDays += days;
-    }
-
-    public void addTime(float time)
-    {
-        this.totalTime += time;
     }
 
     /**
@@ -71,8 +74,8 @@ public class Task {
 
     /**
      * returns the number of days until the task is due
-     * Prerequ The string must be in MM/DD/YYYY format
-     * @param today's date in "MM/DD/YYYY" form
+     * Prerequ: The string must be in MM/DD/YYYY format
+     * @param: today's date in "##/##/####" for
      * @return the number of days until the due date
      *  Author: Joseph Saltalamacchia
      */
@@ -198,25 +201,6 @@ public class Task {
             }
         }
         return null;
-    }
-
-    /**
-     * compares Tasks based on the task name, the description of that task, and it's due date
-     *
-     * @param o the object being compared
-     */ @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Task)) return false;
-        Task task = (Task) o;
-        return taskName.equals(task.taskName) &&
-                taskDescription.equals(task.taskDescription) &&
-                dueDate.equals(task.dueDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(taskName, taskDescription, dueDate);
     }
 
 
