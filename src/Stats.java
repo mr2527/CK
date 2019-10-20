@@ -146,6 +146,49 @@ public class Stats {
     }
 
     /**
+     * Helper function that solely returns the timezone of the user.
+     * @return timeZone
+     * @author Miguel Rosario
+     */
+    private static String getTimeZone(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("z");
+        String timeZone = formatter.format(calendar.getTime());
+        return timeZone;
+    }
+
+    private static String getDays(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("E");
+        String day = formatter.format(calendar.getTime());
+        switch(day){
+            case"Sun":
+                return "Sunday";
+
+            case"Mon":
+                return "Monday";
+
+            case"Tues":
+                return "Sunday";
+
+            case"Wed":
+                return "Monday";
+
+            case"Thur":
+                return "Sunday";
+
+            case"Fri":
+                return "Monday";
+
+            case"Sat":
+                return "Saturday";
+
+
+        }
+        return "no";
+    }
+
+    /**
      * Override toString method that displays the stats
      * @author Miguel Rosario
      */
@@ -169,7 +212,10 @@ public class Stats {
         String totalDate = getTotalDate();
         String time = getTime();
         String date = getDate();
-        System.out.println(date + "\n" + time + "\n" + totalDate);
+        String timeZone = getTimeZone();
+        System.out.println(date + "\n" + time + "\n" + totalDate + "\n" + timeZone);
+        String day = getDays();
+        System.out.println(day);
 
     }
 }
