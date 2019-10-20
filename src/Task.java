@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/**
+ * Contains functions for generating a task and modifying the properties of a task.
+ * @author Joey
+ * @author Su Thit Thazin
+ */
 public class Task {
 
     /** name of the task */
@@ -143,7 +148,6 @@ public class Task {
     public void setMasterTask(Task masterTask) {
         this.masterTask = masterTask;
     }
-
 
     /**
      * Get a sub task.
