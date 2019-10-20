@@ -32,24 +32,49 @@ public class Task {
 
 
     /*
-    * adds a subtask to the back of the list of subTasks */
+     * adds a subtask to the back of the list of subTasks
+     *
+     * @param newTask the task to be added
+     *
+     * @return whether or not the task was added to the list
+     *
+     * @Author: Joseph Saltalamacchia*/
     public boolean addSubTask(Task newTask)
     {
         return(subTasks.add((new subTask(this,newTask))));
     }
 
+    /*
+     * removes a subtask from the of the list of subTasks
+     *
+     * @param the subtask being removed
+     *
+     * @return whether or not the task was removed from the list
+     *
+     * @Author: Joseph Saltalamacchia*/
     public boolean removeSubTask(subTask newTask)
     {
         return(subTasks.remove(newTask));
     }
 
-    public boolean containsSubTask(subTask)
+    /*
+     * checks to see if a particular subtask is in the list
+     *
+     * @param subtask the task to be added
+     *
+     * @return whether or not the task is in the list
+     *
+     * @Author: Joseph Saltalamacchia*/
+    public boolean containsSubTask(subTask task)
     {
-        return(subTasks.contains(subTasks));
+        return(subTasks.contains(task));
     }
 
-    public void allSubTasks()
-    {
+    /*
+     * prints all of the subtasks in a task
+     *
+     * @Author: Joseph Saltalamacchia*/
+    public void allSubTasks() {
         System.out.println(subTasks);
     }
 
