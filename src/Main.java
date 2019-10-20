@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 /**
  * Main testing class
+ *
  * @author Miguel Rosario +
  */
 public class Main {
