@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /*
- */
+*/
 public class Stats {
 
     private String dateAssigned;
@@ -157,6 +157,11 @@ public class Stats {
         return timeZone;
     }
 
+    /**
+     * returns a non abbreviated version of the calendar dates because why not.
+     * @return Day/String
+     * @author Miguel Rosario
+     */
     private static String getDays(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("E");
@@ -217,6 +222,6 @@ public class Stats {
         System.out.println(date + "\n" + time + "\n" + totalDate + "\n" + timeZone);
         String day = getDays();
         System.out.println(day);
-
     }
+
 }
