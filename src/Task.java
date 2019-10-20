@@ -25,7 +25,6 @@ public class Task {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.dueDate = dueDate;
-        this.masterTask = null;
         this.totalDays = 0;
         this.totalTime = 0;
     }
@@ -46,6 +45,17 @@ public class Task {
         this.totalTime = 0;
     }
 
+    public boolean addSubTask(Task newTask)
+    {
+        return(subTasks.add((subTask(newTask,this))));
+    }
+
+    public boolean removeSubTask(subTask newTask)
+    {
+        return(subTasks.remove(newTask));
+    }
+
+    public boolean containsSubTask(subTask);
 
     /**
      * returns the number of days until the task is due
