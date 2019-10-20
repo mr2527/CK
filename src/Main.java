@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 /**
  * Main testing class
- *
  * @author Miguel Rosario +
  */
 public class Main {
@@ -50,9 +49,9 @@ public class Main {
      * Processes all of the commands
      * @author Miguel Rosario
      */
-    /*
-    THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
-     */
+     /*
+     THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
+      */
     public void mainLoop(Scanner in, boolean stdin) {
         if (stdin) {
             System.out.println("Type 'help' for the list of commands.");
@@ -69,9 +68,9 @@ public class Main {
             String[] fields;
             fields = line.split("\\s+");
 
-            /*
-            THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
-             */
+             /*
+             THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
+              */
             switch (fields[0]) {
                 case HELP:
                     helpMessage();
@@ -124,5 +123,3 @@ public class Main {
         System.out.println("Hello World");
     }
 }
-
-
