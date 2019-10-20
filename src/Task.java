@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Task {
 
@@ -7,7 +8,40 @@ public class Task {
     private String dueDate;
     private Stats Statistics;
     private Task masterTask;
-    private ArrayList subTasks;
+    private int totalTime;
+    private int totalDays;
+    private ArrayList<Task> subTasks;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task)) return false;
+        Task task = (Task) o;
+        return taskName.equals(task.taskName) &&
+                taskDescription.equals(task.taskDescription) &&
+                dueDate.equals(task.dueDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskName, taskDescription, dueDate);
+    }
+
+    public int getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(int totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public int getTotalDays() {
+        return totalDays;
+    }
+
+    public void setTotalDays(int totalDays) {
+        this.totalDays = totalDays;
+    }
 
     /**
      *
@@ -19,6 +53,8 @@ public class Task {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.dueDate = dueDate;
+        this.totalDays = 0;
+        this.totalTime = 0;
     }
 
     /**
@@ -38,9 +74,10 @@ public class Task {
 
     /**
      * returns the number of days until the task is due
-     * param: today's date in "##/##/####" form
-     * Author: Joseph Saltalamacchia
+     * Prerequ: The string must be in MM/DD/YYYY format
+     * @param: today's date in "##/##/####" for
      * @return the number of days until the due date
+     *  Author: Joseph Saltalamacchia
      */
     public int daysUntilDue(String today)
     {
