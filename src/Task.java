@@ -8,13 +8,28 @@ import java.util.Objects;
  */
 public class Task {
 
+    /** name of the task */
     private String taskName;
+
+    /** description of the task */
     private String taskDescription;
+
+    /** the due date of the task */
     private String dueDate;
+
+    /** the Statistics of the task */
     private Stats Statistics;
+
+    /** the master task that this task belongs to, if this is not the master task */
     private Task masterTask;
+
+    /** the total time spent on this task */
     private float totalTime;
+
+    /** the total number of days spent on this task */
     private int totalDays;
+
+    /** get the sub tasks belonging to a master task */
     private ArrayList<Task> subTasks;
 
     /**
