@@ -17,10 +17,8 @@ public class Task {
     private int totalDays;
     private ArrayList<Task> subTasks;
 
-
-
     /**
-     *
+     * Make a task.
      * @param taskName name of the task
      * @param taskDescription description of the task
      * @param dueDate due date of the task
@@ -61,43 +59,54 @@ public class Task {
         String[] partsToday = today.split("/");
 
         return(Integer.parseInt(partsDue[1]) - Integer.parseInt(partsToday[1]));
-
     }
 
-
-
-
-
+    /** Get the total time spent on this task
+     * @return the total time spent on this task
+     */
     public float getTotalTime() {
         return totalTime;
     }
 
+    /** Set the total time spent on this task
+     * @param totalTime the total time spent on this task
+     */
     public void setTotalTime(int totalTime) {
         this.totalTime = totalTime;
     }
 
+    /**
+     * Get the total number of days spent on this task
+     * @return Get the total number of days spent on this task
+     */
     public int getTotalDays() {
         return totalDays;
     }
 
+    /**
+     * Set the total number of days spent on this task
+     * @param totalDays the total number of days spent on this task
+     */
     public void setTotalDays(int totalDays) {
         this.totalDays = totalDays;
     }
 
+    /**
+     * Add days to the totalDays of this task
+     * @param days number of days to be added
+     */
     public void AddDays(int days)
     {
         this.totalDays += days;
     }
 
+    /** Add time to the totalTime of this task
+     * @param time amount of time to be added
+     */
     public void addTime(float time)
     {
         this.totalTime += time;
     }
-
-
-
-
-
 
     /**
      * Get the name of the task
@@ -124,65 +133,58 @@ public class Task {
 //    }
 
     /**
-     *
-     * @param taskDescription
+     * Set the description of the task.
+     * @param taskDescription the description of the task
      */
-
-
-
-
-
-
-
-
-
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
     }
 
     /**
-     *
-     * @return
+     * Get the due date of the task.
+     * @return the due date of the task
      */
     public String getDueDate() {
         return dueDate;
     }
 
     /**
-     *
-     * @param dueDate
+     * Set the due date of the task.
+     * @param dueDate the due date of the task
      */
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
     /**
-     *
-     * @return
+     * Get the Stats (date assigned, date completed, estimated time, actual time, and if the task is active)
+     * associated with a task.
+     * @return the Stats associated with a task
      */
     public Stats getStatistics() {
         return Statistics;
     }
 
     /**
-     *
-     * @param statistics
+     * Get the Stats (date assigned, date completed, estimated time, actual time, and if the task is active)
+     * associated with a task.
+     * @param statistics the Stats associated with a task
      */
     public void setStatistics(Stats statistics) {
         Statistics = statistics;
     }
 
     /**
-     *
-     * @return
+     * Get the master task that this sub task belongs to.
+     * @return the master task that this sub task belongs to
      */
     public Task getMasterTask() {
         return masterTask;
     }
 
     /**
-     *
-     * @param masterTask
+     * Set the master task that this sub task belongs to.
+     * @param masterTask the master task that this sub task belongs to
      */
     public void setMasterTask(Task masterTask) {
         this.masterTask = masterTask;
@@ -218,6 +220,10 @@ public class Task {
                 dueDate.equals(task.dueDate);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(taskName, taskDescription, dueDate);
