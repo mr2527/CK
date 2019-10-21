@@ -33,7 +33,7 @@ public class Main {
      * A helper method for displaying the help message.
      * @author Miguel Rosario
      */
-    private void helpMessage() {
+    private static void helpMessage() {
         System.out.println("help: This message.");
         System.out.println("task: Print out what the current task is.");
         System.out.println("tasks: List all Tasks (ordered by course date/time).");
@@ -52,49 +52,42 @@ public class Main {
      /*
      THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
       */
-    public void mainLoop(Scanner in, boolean stdin) {
-        if (stdin) {
-            System.out.println("Type 'help' for the list of commands.");
-        }
-        System.out.print("> ");
-        // continue looping until there is no more input
-        label:
-        while (in.hasNext()) {
-            // read the next command and then call the appropriate method to process it
-            String line = in.nextLine();
-            if (!stdin) {
-                System.out.println(line);
-            }
-            String[] fields;
-            fields = line.split("\\s+");
+    private static void mainLoop(String in) {
 
              /*
              THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
               */
-            switch (fields[0]) {
+            switch (in) {
                 case HELP:
                     helpMessage();
                     break;
 
                 case TASK:
+                    System.out.println("Got to TASK");
                     break;
 
                 case TASKS:
+                    System.out.println("Got to TASKS");
                     break;
 
                 case DATE:
+                    System.out.println("Got to DATE");
                     break;
 
                 case TIME:
+                    System.out.println("Got to TIME");
                     break;
 
                 case EST_TIME:
+                    System.out.println("Got to EST_TIME");
                     break;
 
                 case DESCRIPTION:
+                    System.out.println("Got to DESCRIPTION");
                     break;
 
                 case DESCRIPTIONS:
+                    System.out.println("Got to DESCRIPTIONS");
                     break;
 
                 case SUPER_SECRET_CRAZY_BUTTON:
@@ -103,14 +96,14 @@ public class Main {
                     break;
 
                 case QUIT:
-                    break label;
+                    System.out.println("Got to QUIT");
+                    break;
 
                 default:
                     break;
             }
 
         }
-    }
 
 
     /**
@@ -120,6 +113,29 @@ public class Main {
      * @throws FileNotFoundException if a file is not found
      */
     public static void main(String[] args) throws FileNotFoundException{
-        System.out.println("Hello World");
+        Scanner scan = new Scanner(System.in);
+
+        // enter the main loop
+        helpMessage();
+        System.out.println("Prompting user input\n" +
+                "Please input your command:");
+        String in = scan.nextLine();
+
+        while(!in.equals("quit")) {
+
+            if(in.matches(".*\\d.*")) {
+                System.out.println("The command cannot have a number, try again.\n" +
+                        "Input your command:");
+                in = scan.nextLine();
+            }
+
+            else{
+                System.out.println(in);
+                mainLoop(in);
+                in = scan.nextLine();
+            }
+        }
+
     }
+
 }

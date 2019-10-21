@@ -32,6 +32,7 @@ public class Stats {
     /**
      *
      * @return
+     * @author Miguel Rosario - Generated
      */
     public String getDateAssigned() {
         return dateAssigned;
@@ -40,6 +41,7 @@ public class Stats {
     /**
      *
      * @param dateAssigned
+     * @author Miguel Rosario - Generated
      */
     public void setDateAssigned(String dateAssigned) {
         this.dateAssigned = dateAssigned;
@@ -48,6 +50,7 @@ public class Stats {
     /**
      *
      * @return
+     * @author Miguel Rosario - Generated
      */
     public String getDateCompleted() {
         return dateCompleted;
@@ -56,6 +59,7 @@ public class Stats {
     /**
      *
      * @param dateCompleted
+     * @author Miguel Rosario - Generated
      */
     public void setDateCompleted(String dateCompleted) {
         this.dateCompleted = dateCompleted;
@@ -64,6 +68,7 @@ public class Stats {
     /**
      *
      * @return
+     * @author Miguel Rosario - Generated
      */
     public double getEstimateTime() {
         return estimateTime;
@@ -72,6 +77,7 @@ public class Stats {
     /**
      *
      * @param estimateTime
+     * @author Miguel Rosario - Generated
      */
     public void setEstimateTime(double estimateTime) {
         this.estimateTime = estimateTime;
@@ -80,6 +86,7 @@ public class Stats {
     /**
      *
      * @return
+     * @author Miguel Rosario - Generated
      */
     public double getActualTime() {
         return actualTime;
@@ -88,6 +95,7 @@ public class Stats {
     /**
      *
      * @param actualTime
+     * @author Miguel Rosario - Generated
      */
     public void setActualTime(double actualTime) {
         this.actualTime = actualTime;
@@ -96,6 +104,7 @@ public class Stats {
     /**
      *
      * @return
+     * @author Miguel Rosario - Generated
      */
     public boolean isActive() {
         return isActive;

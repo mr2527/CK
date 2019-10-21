@@ -31,7 +31,7 @@ public class Task {
 
 
 
-    /*
+    /**
      * adds a subtask to the back of the list of subTasks
      *
      * @param newTask the task to be added
@@ -44,7 +44,7 @@ public class Task {
         return(subTasks.add((new subTask(this,newTask))));
     }
 
-    /*
+    /**
      * removes a subtask from the of the list of subTasks
      *
      * @param the subtask being removed
@@ -57,7 +57,7 @@ public class Task {
         return(subTasks.remove(newTask));
     }
 
-    /*
+    /**
      * checks to see if a particular subtask is in the list
      *
      * @param subtask the task to be added
@@ -70,7 +70,7 @@ public class Task {
         return(subTasks.contains(task));
     }
 
-    /*
+    /**
      * prints all of the subtasks in a task
      *
      * @Author: Joseph Saltalamacchia*/
@@ -94,7 +94,7 @@ public class Task {
 
     }
 
-    /*
+    /**
     * check if the project was finished in time
     *
     * return: if the project was finished it time of not
@@ -129,7 +129,7 @@ public class Task {
         return true;
     }
 
-    /*
+    /**
     * accepts a string in MM/DD/YYYY and returns the year as an integer
     *
     * prerequ: the string must be in MM/DD/YYYY format
@@ -143,7 +143,7 @@ public class Task {
     {
         return(Integer.parseInt(date.substring(7,11)));
     }
-    /*
+    /**
      * accepts a string in MM/DD/YYYY and returns the Month as an integer
      *
      * prerequ: the string must be in MM/DD/YYYY format
@@ -157,7 +157,7 @@ public class Task {
     {
         return(Integer.parseInt(date.substring(0,2)));
     }
-    /*
+    /**
      * accepts a string in MM/DD/YYYY and returns the Day as an integer
      *
      * prerequ: the string must be in MM/DD/YYYY format
