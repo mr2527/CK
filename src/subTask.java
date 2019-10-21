@@ -14,11 +14,11 @@ public class subTask extends Task{
     }
 
     /**
-     *
-     * @param masterTask
-     * @param subTask
+     * Creates a subtask object
+     * @param masterTask original task
+     * @param subTask lower class
      */
-    public subTask(Task masterTask, Task subTask) {
+    subTask(Task masterTask, Task subTask) {
         super(subTask.getTaskName(), subTask.getTaskDescription(), subTask.getDueDate());
         this.masterTask = masterTask;
     }

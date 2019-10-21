@@ -13,11 +13,11 @@ public class Stats {
 
     /**
      * a Stats object that has 5 variables instantiated.
-     * @param dateAssigned
-     * @param dateCompleted
-     * @param estimateTime
-     * @param actualTime
-     * @param isActive
+     * @param dateAssigned The date assigned.
+     * @param dateCompleted The date the task is completed.
+     * @param estimateTime The estimated time the task will take.
+     * @param actualTime The actual time the task took.
+     * @param isActive If the current task is active or not.
      * @author Miguel Rosario
      */
     public Stats(String dateAssigned, String dateCompleted, double estimateTime, double actualTime, boolean isActive) {
@@ -30,8 +30,8 @@ public class Stats {
 
 
     /**
-     *
-     * @return
+     * Getter for the assigned date.
+     * @return the date assigned.
      * @author Miguel Rosario - Generated
      */
     public String getDateAssigned() {
@@ -39,8 +39,8 @@ public class Stats {
     }
 
     /**
-     *
-     * @param dateAssigned
+     * Setter for the assigned date.
+     * @param dateAssigned set the assigned date.
      * @author Miguel Rosario - Generated
      */
     public void setDateAssigned(String dateAssigned) {
@@ -48,17 +48,17 @@ public class Stats {
     }
 
     /**
-     *
-     * @return
+     * Getter for the date the task is completed.
+     * @return the completion date
      * @author Miguel Rosario - Generated
      */
-    public String getDateCompleted() {
+    String getDateCompleted() {
         return dateCompleted;
     }
 
     /**
-     *
-     * @param dateCompleted
+     * setter for the date of completion.
+     * @param dateCompleted The date the task is completed.
      * @author Miguel Rosario - Generated
      */
     public void setDateCompleted(String dateCompleted) {
@@ -66,8 +66,8 @@ public class Stats {
     }
 
     /**
-     *
-     * @return
+     * Getter for the estimated time.
+     * @return estimated time.
      * @author Miguel Rosario - Generated
      */
     public double getEstimateTime() {
@@ -75,8 +75,8 @@ public class Stats {
     }
 
     /**
-     *
-     * @param estimateTime
+     * Setter for the estimated time.
+     * @param estimateTime the estimated time it takes to finish a task.
      * @author Miguel Rosario - Generated
      */
     public void setEstimateTime(double estimateTime) {
@@ -84,8 +84,8 @@ public class Stats {
     }
 
     /**
-     *
-     * @return
+     * Getter for the actual time it takes to complete.
+     * @return The actual time it took to complete a task.
      * @author Miguel Rosario - Generated
      */
     public double getActualTime() {
@@ -93,8 +93,8 @@ public class Stats {
     }
 
     /**
-     *
-     * @param actualTime
+     * Setter for the actual time.
+     * @param actualTime Sets the actual time it took to get the actual time for the task to be completed.
      * @author Miguel Rosario - Generated
      */
     public void setActualTime(double actualTime) {
@@ -102,17 +102,17 @@ public class Stats {
     }
 
     /**
-     *
-     * @return
+     * Check to see if the current task is active or not.
+     * @return true/false
      * @author Miguel Rosario - Generated
      */
-    public boolean isActive() {
+    boolean isActive() {
         return isActive;
     }
 
     /**
-     *
-     * @param active
+     * Set a task to active or inactive
+     * @param active boolean
      */
     public void setActive(boolean active) {
         isActive = active;
@@ -126,8 +126,7 @@ public class Stats {
     public static String getTotalDate(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("E: MM/dd/yyyy \nHH:mm:ss a z");
-        String totalDateString = formatter.format(calendar.getTime());
-        return totalDateString;
+        return formatter.format(calendar.getTime());
     }
 
     /**
@@ -138,8 +137,7 @@ public class Stats {
     public static String getTime(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-        String timeString = formatter.format(calendar.getTime());
-        return timeString;
+        return formatter.format(calendar.getTime());
     }
 
     /**
@@ -150,8 +148,7 @@ public class Stats {
     public static String getDate(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-        String dateString = formatter.format(calendar.getTime());
-        return dateString;
+        return formatter.format(calendar.getTime());
     }
 
     /**
@@ -162,8 +159,7 @@ public class Stats {
     private static String getTimeZone(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("z");
-        String timeZone = formatter.format(calendar.getTime());
-        return timeZone;
+        return formatter.format(calendar.getTime());
     }
 
     /**
@@ -220,7 +216,6 @@ public class Stats {
 
     /**
      * Test cases
-     * @param args
      * @author Miguel Rosario
      */
     public static void main(String[] args) {

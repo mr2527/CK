@@ -21,7 +21,7 @@ public class Task {
      * @param taskDescription description of the task
      * @param dueDate due date of the task
      */
-    public Task(String taskName, String taskDescription, String dueDate) {
+    Task(String taskName, String taskDescription, String dueDate) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.dueDate = dueDate;
@@ -38,7 +38,7 @@ public class Task {
      *
      * @return whether or not the task was added to the list
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     public boolean addSubTask(Task newTask)
     {
         return(subTasks.add((new subTask(this,newTask))));
@@ -51,7 +51,7 @@ public class Task {
      *
      * @return whether or not the task was removed from the list
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     public boolean removeSubTask(subTask newTask)
     {
         return(subTasks.remove(newTask));
@@ -64,7 +64,7 @@ public class Task {
      *
      * @return whether or not the task is in the list
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     public boolean containsSubTask(subTask task)
     {
         return(subTasks.contains(task));
@@ -73,7 +73,7 @@ public class Task {
     /**
      * prints all of the subtasks in a task
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     public void allSubTasks() {
         System.out.println(subTasks);
     }
@@ -95,38 +95,28 @@ public class Task {
     }
 
     /**
-    * check if the project was finished in time
-    *
-    * return: if the project was finished it time of not
-    *         note: if the project is not finished, return false
-    * Author: Joseph Saltalamacchia*/
-
+     * check if the project was finished in time
+     *
+     * return: if the project was finished it time of not
+     *         note: if the project is not finished, return false
+     *         * Author: Joseph Saltalamacchia - Edited by Miguel Rosario
+     */
     public boolean finishedInTime()
     {
-        if(Statistics.isActive() == true) //test if the task is finished
-        {
-            return false;
-        }
+        //test if the task is finished
         //test if the due date year is less than the finished year
-        else if(parseYear(this.dueDate) <
-                parseYear(Statistics.getDateCompleted()))
-        {
-            return false;
-        }
         //test if the due month is less than the finished month
-        else if(parseMonth(this.dueDate) <
-                parseMonth(Statistics.getDateCompleted()))
-        {
+        if (Statistics.isActive() || parseYear(this.dueDate) <
+                parseYear(Statistics.getDateCompleted())) {
+            return false;
+        } else if (parseMonth(this.dueDate) <
+                parseMonth(Statistics.getDateCompleted())) {
             return false;
         }
         //test if the due day is less than the finished day
-        else if(parseDay(this.dueDate) <
-                parseDay(Statistics.getDateCompleted()))
-        {
-            return false;
-        }
+        else
+            return parseDay(this.dueDate) >= parseDay(Statistics.getDateCompleted());
 
-        return true;
     }
 
     /**
@@ -138,7 +128,7 @@ public class Task {
     *
     * @return the year as an integer
     *
-    * @Author: Joseph Saltalamacchia*/
+    * @author Joseph Saltalamacchia*/
     private int parseYear(String date)
     {
         return(Integer.parseInt(date.substring(7,11)));
@@ -152,7 +142,7 @@ public class Task {
      *
      * @return the Month as an integer
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     private int parseMonth(String date)
     {
         return(Integer.parseInt(date.substring(0,2)));
@@ -166,7 +156,7 @@ public class Task {
      *
      * @return the Day as an integer
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     private int parseDay(String date)
     {
         return(Integer.parseInt(date.substring(3,5)));
@@ -223,24 +213,17 @@ public class Task {
 
     /**
      * Get the description of the task
-     * @return
+     * @return the description of the task.
      */
     public String getTaskDescription() {
         return taskDescription;
     }
 
     /**
-     *
-     * @param taskDescription
+     * Setter for the tasks description
+     * @param taskDescription The description of the current task.
+     * @author Miguel Rosario
      */
-
-
-
-
-
-
-
-
 
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
