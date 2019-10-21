@@ -63,30 +63,37 @@ public class Main {
                     break;
 
                 case TASK:
+                    //get the first task in the list
                     System.out.println("Got to TASK");
                     break;
 
                 case TASKS:
+                    //get every task
                     System.out.println("Got to TASKS");
                     break;
 
                 case DATE:
-                    System.out.println("Got to DATE");
+                    System.out.println("The current date is:");
+                    System.out.println(Stats.getDays() + " " + Stats.getDate());
                     break;
 
                 case TIME:
-                    System.out.println("Got to TIME");
+                    System.out.println("The current time is:");
+                    System.out.println(Stats.getTime() + " " + Stats.getTimeZone());
                     break;
 
                 case EST_TIME:
+                    //Get the set estimated time and subtract from the total time taken
                     System.out.println("Got to EST_TIME");
                     break;
 
                 case DESCRIPTION:
+                    //Get the description of the first task
                     System.out.println("Got to DESCRIPTION");
                     break;
 
                 case DESCRIPTIONS:
+                    //Get the description of every task
                     System.out.println("Got to DESCRIPTIONS");
                     break;
 
@@ -112,7 +119,7 @@ public class Main {
      * @param args command line arguments (used - see class description)
      * @throws FileNotFoundException if a file is not found
      */
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
 
         // enter the main loop
@@ -132,8 +139,10 @@ public class Main {
             else{
                 System.out.println(in);
                 mainLoop(in);
+                System.out.println("Please input your next command!");
                 in = scan.nextLine();
             }
+
         }
 
     }

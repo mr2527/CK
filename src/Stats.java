@@ -156,7 +156,7 @@ public class Stats {
      * @return timeZone
      * @author Miguel Rosario
      */
-    private static String getTimeZone(){
+    public static String getTimeZone(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("z");
         return formatter.format(calendar.getTime());
@@ -167,7 +167,7 @@ public class Stats {
      * @return Day/String
      * @author Miguel Rosario
      */
-    private static String getDays(){
+    public static String getDays(){
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("E");
         String day = formatter.format(calendar.getTime());
