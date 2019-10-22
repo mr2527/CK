@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.StreamSupport;
 
+/**
+ *
+ */
 public class Task {
 
     private String taskName;
@@ -12,8 +15,6 @@ public class Task {
     private float totalTime;
     private int totalDays;
     private ArrayList<Task> subTasks;
-
-
 
     /**
      *
@@ -31,49 +32,49 @@ public class Task {
 
 
 
-    /*
+    /**
      * adds a subtask to the back of the list of subTasks
      *
      * @param newTask the task to be added
      *
      * @return whether or not the task was added to the list
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     public boolean addSubTask(Task newTask)
     {
         return(subTasks.add((new subTask(this,newTask))));
     }
 
-    /*
+    /**
      * removes a subtask from the of the list of subTasks
      *
-     * @param the subtask being removed
+     * @param task subtask being removed
      *
      * @return whether or not the task was removed from the list
      *
-     * @Author: Joseph Saltalamacchia*/
-    public boolean removeSubTask(subTask newTask)
+     * @author Joseph Saltalamacchia*/
+    public boolean removeSubTask(subTask task)
     {
-        return(subTasks.remove(newTask));
+        return(subTasks.remove(task));
     }
 
-    /*
+    /**
      * checks to see if a particular subtask is in the list
      *
-     * @param subtask the task to be added
+     * @param task the task to be checked
      *
      * @return whether or not the task is in the list
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     public boolean containsSubTask(subTask task)
     {
         return(subTasks.contains(task));
     }
 
-    /*
+    /**
      * prints all of the subtasks in a task
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     public void allSubTasks() {
         System.out.println(subTasks);
     }
@@ -94,42 +95,32 @@ public class Task {
 
     }
 
-    /*
-    * check if the project was finished in time
-    *
-    * return: if the project was finished it time of not
-    *         note: if the project is not finished, return false
-    * Author: Joseph Saltalamacchia*/
-
+    /**
+     * check if the project was finished in time
+     *
+     * return: if the project was finished it time of not
+     *         note: if the project is not finished, return false
+     *         * Author: Joseph Saltalamacchia - Edited by Miguel Rosario
+     */
     public boolean finishedInTime()
     {
-        if(Statistics.isActive() == true) //test if the task is finished
-        {
-            return false;
-        }
+        //test if the task is finished
         //test if the due date year is less than the finished year
-        else if(parseYear(this.dueDate) <
-                parseYear(Statistics.getDateCompleted()))
-        {
-            return false;
-        }
         //test if the due month is less than the finished month
-        else if(parseMonth(this.dueDate) <
-                parseMonth(Statistics.getDateCompleted()))
-        {
+        if (Statistics.isActive() || parseYear(this.dueDate) <
+                parseYear(Statistics.getDateCompleted())) {
+            return false;
+        } else if (parseMonth(this.dueDate) <
+                parseMonth(Statistics.getDateCompleted())) {
             return false;
         }
         //test if the due day is less than the finished day
-        else if(parseDay(this.dueDate) <
-                parseDay(Statistics.getDateCompleted()))
-        {
-            return false;
-        }
+        else
+            return parseDay(this.dueDate) >= parseDay(Statistics.getDateCompleted());
 
-        return true;
     }
 
-    /*
+    /**
     * accepts a string in MM/DD/YYYY and returns the year as an integer
     *
     * prerequ: the string must be in MM/DD/YYYY format
@@ -138,12 +129,12 @@ public class Task {
     *
     * @return the year as an integer
     *
-    * @Author: Joseph Saltalamacchia*/
+    * @author Joseph Saltalamacchia*/
     private int parseYear(String date)
     {
         return(Integer.parseInt(date.substring(7,11)));
     }
-    /*
+    /**
      * accepts a string in MM/DD/YYYY and returns the Month as an integer
      *
      * prerequ: the string must be in MM/DD/YYYY format
@@ -152,12 +143,12 @@ public class Task {
      *
      * @return the Month as an integer
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     private int parseMonth(String date)
     {
         return(Integer.parseInt(date.substring(0,2)));
     }
-    /*
+    /**
      * accepts a string in MM/DD/YYYY and returns the Day as an integer
      *
      * prerequ: the string must be in MM/DD/YYYY format
@@ -166,7 +157,7 @@ public class Task {
      *
      * @return the Day as an integer
      *
-     * @Author: Joseph Saltalamacchia*/
+     * @author Joseph Saltalamacchia*/
     private int parseDay(String date)
     {
         return(Integer.parseInt(date.substring(3,5)));
@@ -221,26 +212,19 @@ public class Task {
         this.taskName = taskName;
     }
 
-//    /**
-//     * Get the description of the task
-//     * @return
-//     */
+    /**
+     * Get the description of the task
+     * @return the description of the task.
+     */
     public String getTaskDescription() {
         return taskDescription;
     }
 
     /**
-     *
-     * @param taskDescription
+     * Setter for the tasks description
+     * @param taskDescription The description of the current task.
+     * @author Miguel Rosario
      */
-
-
-
-
-
-
-
-
 
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
@@ -331,4 +315,17 @@ public class Task {
     }
 
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "taskName='" + taskName + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", dueDate='" + dueDate + '\'' +
+                ", Statistics=" + Statistics +
+                ", masterTask=" + masterTask +
+                ", totalTime=" + totalTime +
+                ", totalDays=" + totalDays +
+                ", subTasks=" + subTasks +
+                '}';
+    }
 }
