@@ -27,6 +27,14 @@ public class Stats {
         this.actualTime = actualTime;
         this.isActive = isActive;
     }
+    public Stats()
+    {
+        this.dateAssigned = null;
+        this.dateCompleted = null;
+        this.estimateTime = 0.0;
+        this.actualTime = 0.0;
+        this.isActive = true;
+    }
 
 
     /**

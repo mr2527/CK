@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Main testing class
@@ -35,7 +32,7 @@ public class Main {
 
     public final static String QUIT = "quit"; //quits
 
-    public static ArrayList<Task> tasks = new ArrayList<>();
+    public static TaskDB tasks = new TaskDB();
     /**
      * A helper method for displaying the help message.
      * @author Miguel Rosario
@@ -67,6 +64,8 @@ public class Main {
              /*
              THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
               */
+
+
              switch (in) {
                 case HELP:
                     helpMessage();
@@ -80,31 +79,50 @@ public class Main {
                     System.out.println("Due date of the task in MM/DD/YYYY format: ");
                     String dueDate = scanner.nextLine();
                     task = new Task(taskName, description, dueDate);
-                    tasks.add(task);
+                    tasks.addValue(task);
                     break;
 
                 case TASK:
                     //get the first task in the list
-                    assert tasks.size() != 0;
+                    System.out.println("Enter task name: ");
+                    String taskName1 = scanner.nextLine();
+
+                    assert tasks.getAllValues().size() != 0;
                     System.out.println("Got to TASK");
-                    System.out.println(tasks.get(0).toString());
+                    if(tasks.hasTask(taskName1)) {
+                        System.out.println(tasks.getValue(taskName1).toString());
+                    }
+                    else
+                    {
+                        System.out.println("That one's not in there silly!");
+                    }
                     break;
 
                 case TASKS:
                     //get every task
                     System.out.println("Got to TASKS");
-                    for (Task t : tasks){
-                        System.out.println(t);
+                    Iterator it = tasks.getAllValues().iterator();
+                    while( it.hasNext()){
+                        System.out.println(((Task)it.next()));
                     }
                     break; 
                     
                 case STATS:
-                     task = tasks.get(0);
-                     Stats stats = new Stats("10/10/2019", "15/10/2019",
-                             48.00, 24.00, true);
-                     task.setStatistics(stats);
-                     System.out.println(task.getStatistics());
-                     break;
+                     System.out.println("Enter task name: ");
+                     String taskName2 = scanner.nextLine();
+                    if(tasks.hasTask(taskName2)) {
+                        task = tasks.getValue(taskName2);
+                        Stats stats = new Stats("10/10/2019", "15/10/2019",
+                                48.00, 24.00, true);
+                        task.setStatistics(stats);
+                        System.out.println(task.getStatistics());
+                    }
+                    else
+                    {
+                        System.out.println("That one's not in there silly!");
+                    }
+
+                    break;
 
                 case DATE:
                     System.out.println("The current date is:");
@@ -117,23 +135,46 @@ public class Main {
                     break;
 
                 case EST_TIME:
-                    //todo
-                    //Get the set estimated time and subtract from the total time taken
-//                    task.getStatistics().getEstimateTime();
-                    System.out.println(task.getStatistics().getEstimateTime());
+                    System.out.println("Enter task name: ");
+                    String taskName3 = scanner.nextLine();
+
+                    if(tasks.hasTask(taskName3)) {
+
+                        System.out.println("Enter your estimated time in HH.MM format: ");
+                        double estimate = Double.parseDouble(scanner.nextLine());
+
+                        tasks.getValue(taskName3).getStatistics().setEstimateTime(estimate);
+                        System.out.println(tasks.getValue(taskName3).getStatistics().getEstimateTime());
+                    }
+                    else
+                    {
+                        System.out.println("That one's not in there silly!");
+                    }
+
                     break;
 
                 case DESCRIPTION:
                     //Get the description of the first task
-                    System.out.println("Got to DESCRIPTION");
-                    System.out.println(tasks.get(0).getTaskDescription());
+                    System.out.println("Enter task name: ");
+                    String taskName4 = scanner.nextLine();
+                    if(tasks.hasTask(taskName4)) {
+                        System.out.println("Got to DESCRIPTION");
+                        System.out.println(tasks.getValue(taskName4).getTaskDescription());
+                    }
+                    else
+                    {
+                        System.out.println("That one's not there silly!");
+                    }
+
                     break;
 
                 case DESCRIPTIONS:
                     //Get the description of every task
                     System.out.println("Got to DESCRIPTIONS");
-                    for (Task t :tasks){
-                        System.out.println(t.getTaskDescription());
+                    Iterator it2 = tasks.getAllValues().iterator();
+
+                    while( it2.hasNext()){
+                        System.out.println(((Task)it2.next()).getTaskDescription());
                     }
                     break;
 

@@ -28,6 +28,7 @@ public class Task {
         this.dueDate = dueDate;
         this.totalDays = 0;
         this.totalTime = 0;
+        Statistics = new Stats();
     }
 
 
