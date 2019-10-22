@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -10,6 +12,8 @@ import java.util.Scanner;
 public class Main {
     /** the course command */
     public final static String TASK = "task"; //name description duedate
+
+    public final static String ADD = "add"; //add a task
 
     public final static String TASKS = "tasks"; //prints all of the tasks
 
@@ -29,6 +33,7 @@ public class Main {
 
     public final static String QUIT = "quit"; //quits
 
+    public static ArrayList<Task> tasks = new ArrayList<>();
     /**
      * A helper method for displaying the help message.
      * @author Miguel Rosario
@@ -48,28 +53,44 @@ public class Main {
     /**
      * Processes all of the commands
      * @author Miguel Rosario
+     * @author Su Thit Thazin
      */
      /*
      THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
       */
-    private static void mainLoop(String in) {
-
+    private static void mainLoop(String in, Scanner scanner) {
+        Task task;
              /*
              THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
               */
-            switch (in) {
+             switch (in) {
                 case HELP:
                     helpMessage();
                     break;
 
+                case ADD:
+                    System.out.println("Enter task name: ");
+                    String taskName = scanner.nextLine();
+                    System.out.println("Enter description of the task: ");
+                    String description = scanner.nextLine();
+                    System.out.println("Due date of the task in MM/DD/YYYY format: ");
+                    String dueDate = scanner.nextLine();
+                    task = new Task(taskName, description, dueDate);
+                    tasks.add(task);
+
                 case TASK:
                     //get the first task in the list
+                    assert tasks.size() != 0;
                     System.out.println("Got to TASK");
+                    System.out.println(tasks.get(0));
                     break;
 
                 case TASKS:
                     //get every task
                     System.out.println("Got to TASKS");
+                    for (Task t : tasks){
+                        System.out.println(t);
+                    }
                     break;
 
                 case DATE:
@@ -83,6 +104,7 @@ public class Main {
                     break;
 
                 case EST_TIME:
+                    //todo
                     //Get the set estimated time and subtract from the total time taken
                     System.out.println("Got to EST_TIME");
                     break;
@@ -90,11 +112,15 @@ public class Main {
                 case DESCRIPTION:
                     //Get the description of the first task
                     System.out.println("Got to DESCRIPTION");
+                    System.out.println(tasks.get(0).getTaskDescription());
                     break;
 
                 case DESCRIPTIONS:
                     //Get the description of every task
                     System.out.println("Got to DESCRIPTIONS");
+                    for (Task t :tasks){
+                        System.out.println(t.getTaskDescription());
+                    }
                     break;
 
                 case SUPER_SECRET_CRAZY_BUTTON:
@@ -104,7 +130,7 @@ public class Main {
 
                 case QUIT:
                     System.out.println("Got to QUIT");
-                    break;
+                    System.exit(0);
 
                 default:
                     break;
@@ -120,27 +146,27 @@ public class Main {
      * @throws FileNotFoundException if a file is not found
      */
     public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         // enter the main loop
         helpMessage();
         System.out.println("Prompting user input\n" +
                 "Please input your command:");
-        String in = scan.nextLine();
+        String in = scanner.nextLine();
 
         while(!in.equals("quit")) {
 
             if(in.matches(".*\\d.*")) {
                 System.out.println("The command cannot have a number, try again.\n" +
                         "Input your command:");
-                in = scan.nextLine();
+                in = scanner.nextLine();
             }
 
             else{
                 System.out.println(in);
-                mainLoop(in);
+                mainLoop(in, scanner);
                 System.out.println("Please input your next command!");
-                in = scan.nextLine();
+                in = scanner.nextLine();
             }
 
         }

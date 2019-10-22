@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.StreamSupport;
 
+/**
+ *
+ */
 public class Task {
 
     private String taskName;
@@ -13,15 +16,13 @@ public class Task {
     private int totalDays;
     private ArrayList<Task> subTasks;
 
-
-
     /**
      *
      * @param taskName name of the task
      * @param taskDescription description of the task
      * @param dueDate due date of the task
      */
-    Task(String taskName, String taskDescription, String dueDate) {
+    public Task(String taskName, String taskDescription, String dueDate) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.dueDate = dueDate;
@@ -47,20 +48,20 @@ public class Task {
     /**
      * removes a subtask from the of the list of subTasks
      *
-     * @param the subtask being removed
+     * @param task subtask being removed
      *
      * @return whether or not the task was removed from the list
      *
      * @author Joseph Saltalamacchia*/
-    public boolean removeSubTask(subTask newTask)
+    public boolean removeSubTask(subTask task)
     {
-        return(subTasks.remove(newTask));
+        return(subTasks.remove(task));
     }
 
     /**
      * checks to see if a particular subtask is in the list
      *
-     * @param subtask the task to be added
+     * @param task the task to be checked
      *
      * @return whether or not the task is in the list
      *
@@ -312,6 +313,4 @@ public class Task {
     public int hashCode() {
         return Objects.hash(taskName, taskDescription, dueDate);
     }
-
-
 }
