@@ -313,4 +313,19 @@ public class Task {
     public int hashCode() {
         return Objects.hash(taskName, taskDescription, dueDate);
     }
+
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "taskName='" + taskName + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", dueDate='" + dueDate + '\'' +
+                ", Statistics=" + Statistics +
+                ", masterTask=" + masterTask +
+                ", totalTime=" + totalTime +
+                ", totalDays=" + totalDays +
+                ", subTasks=" + subTasks +
+                '}';
+    }
 }

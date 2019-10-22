@@ -77,12 +77,13 @@ public class Main {
                     String dueDate = scanner.nextLine();
                     task = new Task(taskName, description, dueDate);
                     tasks.add(task);
+                    break;
 
                 case TASK:
                     //get the first task in the list
                     assert tasks.size() != 0;
                     System.out.println("Got to TASK");
-                    System.out.println(tasks.get(0));
+                    System.out.println(tasks.get(0).toString());
                     break;
 
                 case TASKS:
@@ -106,6 +107,7 @@ public class Main {
                 case EST_TIME:
                     //todo
                     //Get the set estimated time and subtract from the total time taken
+//                    task.getStatistics().getEstimateTime();
                     System.out.println("Got to EST_TIME");
                     break;
 
@@ -165,7 +167,7 @@ public class Main {
             else{
                 System.out.println(in);
                 mainLoop(in, scanner);
-                System.out.println("Please input your next command!");
+                System.out.println("Please input your next command: ");
                 in = scanner.nextLine();
             }
 
