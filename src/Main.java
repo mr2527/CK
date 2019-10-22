@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 /**
  * Main testing class
- * @author Miguel Rosario +
+ * @author Miguel Rosario + Su Thit Thazin
  */
 public class Main {
     /** the course command */
@@ -16,6 +16,8 @@ public class Main {
     public final static String ADD = "add"; //add a task
 
     public final static String TASKS = "tasks"; //prints all of the tasks
+
+    public final static String STATS = "stats"; //set the Stats of the task
 
     public final static String DATE = "date"; //pulls the date
 
@@ -41,10 +43,12 @@ public class Main {
     private static void helpMessage() {
         System.out.println("help: This message.");
         System.out.println("task: Print out what the current task is.");
+        System.out.println("add: Add a task");
         System.out.println("tasks: List all Tasks (ordered by course date/time).");
+        System.out.println("stats: set the Stats of the task");
         System.out.println("date: Prints tha date in MM/DD/YYYY format.");
         System.out.println("time: Prints the time in HH:MM:SS format.");
-        System.out.println("est_Time: Sets the estimated time that a task will take.");
+        System.out.println("est_time: Sets the estimated time that a task will take.");
         System.out.println("description: Get's the description of a certain task.");
         System.out.println("descriptions: Gets every description for every task ");
         System.out.println("quit: quit the program.");
@@ -59,7 +63,7 @@ public class Main {
      THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
       */
     private static void mainLoop(String in, Scanner scanner) {
-        Task task;
+        Task task = null;
              /*
              THIS IS JUST THE SKELETON CODE FOR NOW AND DOESNT ACTUALLY DO ANYTHING
               */
@@ -92,7 +96,15 @@ public class Main {
                     for (Task t : tasks){
                         System.out.println(t);
                     }
-                    break;
+                    break; 
+                    
+                case STATS:
+                     task = tasks.get(0);
+                     Stats stats = new Stats("10/10/2019", "15/10/2019",
+                             48.00, 24.00, true);
+                     task.setStatistics(stats);
+                     System.out.println(task.getStatistics());
+                     break;
 
                 case DATE:
                     System.out.println("The current date is:");
@@ -108,7 +120,7 @@ public class Main {
                     //todo
                     //Get the set estimated time and subtract from the total time taken
 //                    task.getStatistics().getEstimateTime();
-                    System.out.println("Got to EST_TIME");
+                    System.out.println(task.getStatistics().getEstimateTime());
                     break;
 
                 case DESCRIPTION:
