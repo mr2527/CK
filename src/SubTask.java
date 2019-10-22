@@ -1,4 +1,7 @@
-public class subTask extends Task{
+/**
+ * Sub task that belongs to a master task
+ */
+public class SubTask extends Task{
 
     /** the master task that this sub task belongs to */
     public Task masterTask;
@@ -8,7 +11,7 @@ public class subTask extends Task{
      * @param taskDescription description of the task
      * @param dueDate         due date of the task
      */
-    public subTask(String taskName, String taskDescription, String dueDate, Task masterTask) {
+    public SubTask(String taskName, String taskDescription, String dueDate, Task masterTask) {
         super(taskName, taskDescription, dueDate);
         this.masterTask = masterTask;
     }
@@ -18,7 +21,7 @@ public class subTask extends Task{
      * @param masterTask original task
      * @param subTask lower class
      */
-    subTask(Task masterTask, Task subTask) {
+    SubTask(Task masterTask, Task subTask) {
         super(subTask.getTaskName(), subTask.getTaskDescription(), subTask.getDueDate());
         this.masterTask = masterTask;
     }

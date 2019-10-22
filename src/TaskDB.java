@@ -3,6 +3,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
+/**
+ * Task database that deals with adding, getting and storing tasks.
+ */
 public class TaskDB
 {
     private ArrayList<Task> tasks;

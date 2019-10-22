@@ -113,7 +113,8 @@ public class Main {
                     if(tasks.hasTask(taskName2)) {
                         task = tasks.getValue(taskName2);
                         Stats stats = new Stats("10/10/2019", "15/10/2019",
-                                48.00, 24.00, true);
+                                48.00, 24.00, true); //random values
+                                                                            // just to test the functionality
                         task.setStatistics(stats);
                         System.out.println(task.getStatistics());
                     }

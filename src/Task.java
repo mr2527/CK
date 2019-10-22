@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.stream.StreamSupport;
 
 /**
- *
+ * Create a task and stores the information about the task including the name, the description,
+ * due date, Stats (see Stats), total time and days spent on this task, and the sub tasks of this task
  */
 public class Task {
 
@@ -43,7 +43,7 @@ public class Task {
      * @author Joseph Saltalamacchia*/
     public boolean addSubTask(Task newTask)
     {
-        return(subTasks.add((new subTask(this,newTask))));
+        return(subTasks.add((new SubTask(this,newTask))));
     }
 
     /**
@@ -54,7 +54,7 @@ public class Task {
      * @return whether or not the task was removed from the list
      *
      * @author Joseph Saltalamacchia*/
-    public boolean removeSubTask(subTask task)
+    public boolean removeSubTask(SubTask task)
     {
         return(subTasks.remove(task));
     }
@@ -67,7 +67,7 @@ public class Task {
      * @return whether or not the task is in the list
      *
      * @author Joseph Saltalamacchia*/
-    public boolean containsSubTask(subTask task)
+    public boolean containsSubTask(SubTask task)
     {
         return(subTasks.contains(task));
     }

@@ -1,5 +1,5 @@
 /**
- *
+ * Timer class that deals with setting timers
  */
 public class Timer {
     private float startTimer;

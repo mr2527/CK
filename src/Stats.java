@@ -1,8 +1,10 @@
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/*
-*/
+/**
+ * Stats that store information about a task including the date assigned, the date completed, estimated time,
+ * actual time, and if the task is active or not
+ */
 public class Stats {
 
     private String dateAssigned;
